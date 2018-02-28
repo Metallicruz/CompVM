@@ -1,0 +1,1363 @@
+N1 .INT 1
+N100 .INT 100
+N0 .INT 0
+HE .BYT E
+Hn .BYT n
+N2 .INT 2
+Ht .BYT t
+N3 .INT 3
+He .BYT e
+N4 .INT 4
+Hr .BYT r
+N5 .INT 5
+H .BYT  
+N6 .INT 6
+H! .BYT !
+N7 .INT 7
+N8 .INT 8
+HT .BYT T
+N9 .INT 9
+Ho .BYT o
+N10 .INT 10
+N11 .INT 11
+HQ .BYT Q
+N12 .INT 12
+Hu .BYT u
+N13 .INT 13
+Hi .BYT i
+N14 .INT 14
+N15 .INT 15
+HF .BYT F
+N16 .INT 16
+Ha .BYT a
+N17 .INT 17
+Hc .BYT c
+N18 .INT 18
+N19 .INT 19
+H: .BYT :
+N20 .INT 20
+N21 .INT 21
+H= .BYT =
+N22 .INT 22
+N23 .INT 23
+HI .BYT I
+N24 .INT 24
+N25 .INT 25
+Hv .BYT v
+N26 .INT 26
+N27 .INT 27
+Hl .BYT l
+N28 .INT 28
+N29 .INT 29
+Hd .BYT d
+N30 .INT 30
+N31 .INT 31
+N32 .INT 32
+N33 .INT 33
+N34 .INT 34
+N35 .INT 35
+Hy .BYT y
+H\n .BYT \n
+N-1 .INT -1
+FREE .INT 0
+;------------------------END OF DATA SEGMENT-----------------------
+LDR R1 N1 ;====179
+LDR R0 N0 ;====191
+LDA R2 END ;====203
+ADI R2 36 ;====215
+STR R2 FREE ;====227
+MOV R2 FP ;====239
+ADI R2 -4 ;====251
+STR FP R2 ;====263
+MOV R2 SP ;====275  ;----- FRAME MAIN NULL  ------ }  ------ 94
+ADI R2 -68 ;====287
+CMP R2 SL ;====299
+BLT R2 OVERFLOW ;====311
+MOV R6 FP ;====323
+MOV FP SP ;====335
+ADI SP -4 ;====347
+STR R6 SP ;====359
+ADI SP -4 ;====371
+ADI SP -4 ;====383
+MOV R2 PC ;====395  ;----- CALL MAIN
+ADI R2 36 ;====407
+STR R2 FP ;====419
+JMP MAIN ;====431
+JMP END ;====443  ;----- JMP END
+Y101 ADI SP 0 ;====455  ;----- Y101 FUNC Y101
+MOV SP FP ;====467  ;----- RETURN this  ------ Math() {}  ------ 2
+MOV R2 SP ;====479
+CMP R2 SB ;====491
+BGT R2 UNDERFLOW ;====503
+LDR R3 FP ;====515
+MOV R4 FP ;====527
+ADI R4 -8 ;====539
+LDR R5 R4 ;====551
+ADI FP -4 ;====563
+LDR FP FP ;====575
+STR R5 SP ;====587
+JMR R3 ;====599
+X101 ADI SP 0 ;====611  ;----- X101 FUNC X101
+MOV R2 SP ;====623  ;----- FRAME Y101 this
+ADI R2 -12 ;====635
+CMP R2 SL ;====647
+BLT R2 OVERFLOW ;====659
+MOV R6 FP ;====671
+MOV FP SP ;====683
+ADI SP -4 ;====695
+STR R6 SP ;====707
+ADI SP -4 ;====719
+ADI R6 -8 ;====731
+LDR R2 R6 ;====743
+STR R2 SP ;====755
+ADI SP -4 ;====767
+MOV R2 PC ;====779  ;----- CALL Y101
+ADI R2 36 ;====791
+STR R2 FP ;====803
+JMP Y101 ;====815
+MOV SP FP ;====827  ;----- RETURN this  ------ public int factorial(int n){  ------ 3
+MOV R2 SP ;====839
+CMP R2 SB ;====851
+BGT R2 UNDERFLOW ;====863
+LDR R3 FP ;====875
+MOV R4 FP ;====887
+ADI R4 -8 ;====899
+LDR R5 R4 ;====911
+ADI FP -4 ;====923
+LDR FP FP ;====935
+STR R5 SP ;====947
+JMR R3 ;====959
+M103 ADI SP -16 ;====971  ;----- M103 FUNC M103
+MOV R4 FP ;====983  ;----- LE P102 N1 t100  ------ if(n<=1){  ------ 4
+ADI R4 -12 ;====995
+LDR R2 R4 ;====1007
+LDR R3 N1 ;====1019
+CMP R2 R3 ;====1031
+BLT R2 SKIP_7 ;====1043
+MOV R4 FP ;====1055
+ADI R4 -12 ;====1067
+LDR R2 R4 ;====1079
+LDR R3 N1 ;====1091
+CMP R2 R3 ;====1103
+BRZ R2 SKIP_7 ;====1115
+MOV R4 FP ;====1127
+ADI R4 -16 ;====1139
+STR R0 R4 ;====1151
+JMP SKIP_8 ;====1163
+SKIP_7 MOV R4 FP ;====1175
+ADI R4 -16 ;====1187
+STR R1 R4 ;====1199
+SKIP_8 MOV R4 FP ;====1211  ;----- BF t100 SKIP_1 
+ADI R4 -16 ;====1223
+LDR R2 R4 ;====1235
+BRZ R2 SKIP_1 ;====1247
+MOV SP FP ;====1259  ;----- RETURN N1  ------ return 1  ------ 5
+MOV R2 SP ;====1271
+CMP R2 SB ;====1283
+BGT R2 UNDERFLOW ;====1295
+LDR R3 FP ;====1307
+LDR R5 N1 ;====1319
+ADI FP -4 ;====1331
+LDR FP FP ;====1343
+STR R5 SP ;====1355
+JMR R3 ;====1367
+JMP SKIP_2 ;====1379  ;----- JMP SKIP_2   ------ else{  ------ 7
+SKIP_1 MOV R4 FP ;====1391  ;----- SKIP_1 SUB P102 N1 t101  ------ return (n * factorial(n-1))  ------ 8
+ADI R4 -12 ;====1403
+LDR R2 R4 ;====1415
+LDR R3 N1 ;====1427
+SUB R2 R3 ;====1439
+MOV R4 FP ;====1451
+ADI R4 -20 ;====1463
+STR R2 R4 ;====1475
+MOV R2 SP ;====1487  ;----- FRAME M103 this
+ADI R2 -28 ;====1499
+CMP R2 SL ;====1511
+BLT R2 OVERFLOW ;====1523
+MOV R6 FP ;====1535
+MOV FP SP ;====1547
+ADI SP -4 ;====1559
+STR R6 SP ;====1571
+ADI SP -4 ;====1583
+ADI R6 -8 ;====1595
+LDR R2 R6 ;====1607
+STR R2 SP ;====1619
+ADI SP -4 ;====1631
+MOV R6 FP ;====1643  ;----- PUSH t101
+ADI FP -4 ;====1655
+LDR FP FP ;====1667
+MOV R4 FP ;====1679
+ADI R4 -20 ;====1691
+LDR R2 R4 ;====1703
+STR R2 SP ;====1715
+MOV FP R6 ;====1727
+ADI SP -4 ;====1739
+MOV R2 PC ;====1751  ;----- CALL M103
+ADI R2 36 ;====1763
+STR R2 FP ;====1775
+JMP M103 ;====1787
+LDR R2 SP ;====1799  ;----- PEEK t102
+MOV R4 FP ;====1811
+ADI R4 -24 ;====1823
+STR R2 R4 ;====1835
+MOV R4 FP ;====1847  ;----- MUL P102 t102 t103
+ADI R4 -12 ;====1859
+LDR R2 R4 ;====1871
+MOV R4 FP ;====1883
+ADI R4 -24 ;====1895
+LDR R3 R4 ;====1907
+MUL R2 R3 ;====1919
+MOV R4 FP ;====1931
+ADI R4 -28 ;====1943
+STR R2 R4 ;====1955
+SKIP_2 MOV SP FP ;====1967  ;----- SKIP_2 RETURN t103
+MOV R2 SP ;====1979
+CMP R2 SB ;====1991
+BGT R2 UNDERFLOW ;====2003
+LDR R3 FP ;====2015
+MOV R4 FP ;====2027
+ADI R4 -28 ;====2039
+LDR R5 R4 ;====2051
+ADI FP -4 ;====2063
+LDR FP FP ;====2075
+STR R5 SP ;====2087
+JMR R3 ;====2099
+Y108 ADI SP 0 ;====2111  ;----- Y108 FUNC Y108
+MOV SP FP ;====2123  ;----- RETURN this  ------ Message() {  ------ 17
+MOV R2 SP ;====2135
+CMP R2 SB ;====2147
+BGT R2 UNDERFLOW ;====2159
+LDR R3 FP ;====2171
+MOV R4 FP ;====2183
+ADI R4 -8 ;====2195
+LDR R5 R4 ;====2207
+ADI FP -4 ;====2219
+LDR FP FP ;====2231
+STR R5 SP ;====2243
+JMR R3 ;====2255
+X108 ADI SP -152 ;====2267  ;----- X108 FUNC X108
+MOV R2 SP ;====2279  ;----- FRAME Y108 this
+ADI R2 -12 ;====2291
+CMP R2 SL ;====2303
+BLT R2 OVERFLOW ;====2315
+MOV R6 FP ;====2327
+MOV FP SP ;====2339
+ADI SP -4 ;====2351
+STR R6 SP ;====2363
+ADI SP -4 ;====2375
+ADI R6 -8 ;====2387
+LDR R2 R6 ;====2399
+STR R2 SP ;====2411
+ADI SP -4 ;====2423
+MOV R2 PC ;====2435  ;----- CALL Y108
+ADI R2 36 ;====2447
+STR R2 FP ;====2459
+JMP Y108 ;====2471
+LDR R2 N4 ;====2483  ;----- MUL N4 N100 t104  ------ msg = new char[100]  ------ 18
+LDR R3 N100 ;====2495
+MUL R2 R3 ;====2507
+MOV R4 FP ;====2519
+ADI R4 -12 ;====2531
+STR R2 R4 ;====2543
+LDR R5 FREE ;====2555  ;----- NEW t104 t105
+MOV R4 FP ;====2567
+ADI R4 -16 ;====2579
+STR R5 R4 ;====2591
+MOV R4 FP ;====2603
+ADI R4 -12 ;====2615
+LDR R3 R4 ;====2627
+ADD R5 R3 ;====2639
+STR R5 FREE ;====2651
+MOV R4 FP ;====2663  ;----- MOV V105 t105
+ADI R4 -8 ;====2675
+LDR R4 R4 ;====2687
+ADI R4 0 ;====2699
+MOV R3 R4 ;====2711
+MOV R4 FP ;====2723
+ADI R4 -16 ;====2735
+LDR R2 R4 ;====2747
+STR R2 R3 ;====2759
+MOV R4 FP ;====2771  ;----- AEF V105 N0 tArr106  ------ msg[0] = 'E'  ------ 19
+ADI R4 -8 ;====2783
+LDR R4 R4 ;====2795
+ADI R4 0 ;====2807
+LDR R2 R4 ;====2819
+LDR R3 N0 ;====2831
+LDR R5 N4 ;====2843
+MUL R3 R5 ;====2855
+ADD R2 R3 ;====2867
+MOV R3 FP ;====2879
+ADI R3 -20 ;====2891
+STR R2 R3 ;====2903
+MOV R4 FP ;====2915  ;----- MOV tArr106 HE
+ADI R4 -20 ;====2927
+LDR R4 R4 ;====2939
+MOV R3 R4 ;====2951
+LDB R2 HE ;====2963
+STR R2 R3 ;====2975
+MOV R4 FP ;====2987  ;----- AEF V105 N1 tArr107  ------ msg[1] = 'n'  ------ 20
+ADI R4 -8 ;====2999
+LDR R4 R4 ;====3011
+ADI R4 0 ;====3023
+LDR R2 R4 ;====3035
+LDR R3 N1 ;====3047
+LDR R5 N4 ;====3059
+MUL R3 R5 ;====3071
+ADD R2 R3 ;====3083
+MOV R3 FP ;====3095
+ADI R3 -24 ;====3107
+STR R2 R3 ;====3119
+MOV R4 FP ;====3131  ;----- MOV tArr107 Hn
+ADI R4 -24 ;====3143
+LDR R4 R4 ;====3155
+MOV R3 R4 ;====3167
+LDB R2 Hn ;====3179
+STR R2 R3 ;====3191
+MOV R4 FP ;====3203  ;----- AEF V105 N2 tArr108  ------ msg[2] = 't'  ------ 21
+ADI R4 -8 ;====3215
+LDR R4 R4 ;====3227
+ADI R4 0 ;====3239
+LDR R2 R4 ;====3251
+LDR R3 N2 ;====3263
+LDR R5 N4 ;====3275
+MUL R3 R5 ;====3287
+ADD R2 R3 ;====3299
+MOV R3 FP ;====3311
+ADI R3 -28 ;====3323
+STR R2 R3 ;====3335
+MOV R4 FP ;====3347  ;----- MOV tArr108 Ht
+ADI R4 -28 ;====3359
+LDR R4 R4 ;====3371
+MOV R3 R4 ;====3383
+LDB R2 Ht ;====3395
+STR R2 R3 ;====3407
+MOV R4 FP ;====3419  ;----- AEF V105 N3 tArr109  ------ msg[3] = 'e'  ------ 22
+ADI R4 -8 ;====3431
+LDR R4 R4 ;====3443
+ADI R4 0 ;====3455
+LDR R2 R4 ;====3467
+LDR R3 N3 ;====3479
+LDR R5 N4 ;====3491
+MUL R3 R5 ;====3503
+ADD R2 R3 ;====3515
+MOV R3 FP ;====3527
+ADI R3 -32 ;====3539
+STR R2 R3 ;====3551
+MOV R4 FP ;====3563  ;----- MOV tArr109 He
+ADI R4 -32 ;====3575
+LDR R4 R4 ;====3587
+MOV R3 R4 ;====3599
+LDB R2 He ;====3611
+STR R2 R3 ;====3623
+MOV R4 FP ;====3635  ;----- AEF V105 N4 tArr110  ------ msg[4] = 'r'  ------ 23
+ADI R4 -8 ;====3647
+LDR R4 R4 ;====3659
+ADI R4 0 ;====3671
+LDR R2 R4 ;====3683
+LDR R3 N4 ;====3695
+LDR R5 N4 ;====3707
+MUL R3 R5 ;====3719
+ADD R2 R3 ;====3731
+MOV R3 FP ;====3743
+ADI R3 -36 ;====3755
+STR R2 R3 ;====3767
+MOV R4 FP ;====3779  ;----- MOV tArr110 Hr
+ADI R4 -36 ;====3791
+LDR R4 R4 ;====3803
+MOV R3 R4 ;====3815
+LDB R2 Hr ;====3827
+STR R2 R3 ;====3839
+MOV R4 FP ;====3851  ;----- AEF V105 N5 tArr111  ------ msg[5] = ' '  ------ 24
+ADI R4 -8 ;====3863
+LDR R4 R4 ;====3875
+ADI R4 0 ;====3887
+LDR R2 R4 ;====3899
+LDR R3 N5 ;====3911
+LDR R5 N4 ;====3923
+MUL R3 R5 ;====3935
+ADD R2 R3 ;====3947
+MOV R3 FP ;====3959
+ADI R3 -40 ;====3971
+STR R2 R3 ;====3983
+MOV R4 FP ;====3995  ;----- MOV tArr111 H
+ADI R4 -40 ;====4007
+LDR R4 R4 ;====4019
+MOV R3 R4 ;====4031
+LDB R2 H ;====4043
+STR R2 R3 ;====4055
+MOV R4 FP ;====4067  ;----- AEF V105 N6 tArr112  ------ msg[6] = '!'  ------ 25
+ADI R4 -8 ;====4079
+LDR R4 R4 ;====4091
+ADI R4 0 ;====4103
+LDR R2 R4 ;====4115
+LDR R3 N6 ;====4127
+LDR R5 N4 ;====4139
+MUL R3 R5 ;====4151
+ADD R2 R3 ;====4163
+MOV R3 FP ;====4175
+ADI R3 -44 ;====4187
+STR R2 R3 ;====4199
+MOV R4 FP ;====4211  ;----- MOV tArr112 H!
+ADI R4 -44 ;====4223
+LDR R4 R4 ;====4235
+MOV R3 R4 ;====4247
+LDB R2 H! ;====4259
+STR R2 R3 ;====4271
+MOV R4 FP ;====4283  ;----- AEF V105 N7 tArr113  ------ msg[7] = ' '  ------ 26
+ADI R4 -8 ;====4295
+LDR R4 R4 ;====4307
+ADI R4 0 ;====4319
+LDR R2 R4 ;====4331
+LDR R3 N7 ;====4343
+LDR R5 N4 ;====4355
+MUL R3 R5 ;====4367
+ADD R2 R3 ;====4379
+MOV R3 FP ;====4391
+ADI R3 -48 ;====4403
+STR R2 R3 ;====4415
+MOV R4 FP ;====4427  ;----- MOV tArr113 H
+ADI R4 -48 ;====4439
+LDR R4 R4 ;====4451
+MOV R3 R4 ;====4463
+LDB R2 H ;====4475
+STR R2 R3 ;====4487
+MOV R4 FP ;====4499  ;----- AEF V105 N8 tArr114  ------ msg[8] = 'T'  ------ 27
+ADI R4 -8 ;====4511
+LDR R4 R4 ;====4523
+ADI R4 0 ;====4535
+LDR R2 R4 ;====4547
+LDR R3 N8 ;====4559
+LDR R5 N4 ;====4571
+MUL R3 R5 ;====4583
+ADD R2 R3 ;====4595
+MOV R3 FP ;====4607
+ADI R3 -52 ;====4619
+STR R2 R3 ;====4631
+MOV R4 FP ;====4643  ;----- MOV tArr114 HT
+ADI R4 -52 ;====4655
+LDR R4 R4 ;====4667
+MOV R3 R4 ;====4679
+LDB R2 HT ;====4691
+STR R2 R3 ;====4703
+MOV R4 FP ;====4715  ;----- AEF V105 N9 tArr115  ------ msg[9] = 'o'  ------ 28
+ADI R4 -8 ;====4727
+LDR R4 R4 ;====4739
+ADI R4 0 ;====4751
+LDR R2 R4 ;====4763
+LDR R3 N9 ;====4775
+LDR R5 N4 ;====4787
+MUL R3 R5 ;====4799
+ADD R2 R3 ;====4811
+MOV R3 FP ;====4823
+ADI R3 -56 ;====4835
+STR R2 R3 ;====4847
+MOV R4 FP ;====4859  ;----- MOV tArr115 Ho
+ADI R4 -56 ;====4871
+LDR R4 R4 ;====4883
+MOV R3 R4 ;====4895
+LDB R2 Ho ;====4907
+STR R2 R3 ;====4919
+MOV R4 FP ;====4931  ;----- AEF V105 N10 tArr116  ------ msg[10] = ' '  ------ 29
+ADI R4 -8 ;====4943
+LDR R4 R4 ;====4955
+ADI R4 0 ;====4967
+LDR R2 R4 ;====4979
+LDR R3 N10 ;====4991
+LDR R5 N4 ;====5003
+MUL R3 R5 ;====5015
+ADD R2 R3 ;====5027
+MOV R3 FP ;====5039
+ADI R3 -60 ;====5051
+STR R2 R3 ;====5063
+MOV R4 FP ;====5075  ;----- MOV tArr116 H
+ADI R4 -60 ;====5087
+LDR R4 R4 ;====5099
+MOV R3 R4 ;====5111
+LDB R2 H ;====5123
+STR R2 R3 ;====5135
+MOV R4 FP ;====5147  ;----- AEF V105 N11 tArr117  ------ msg[11] = 'Q'  ------ 30
+ADI R4 -8 ;====5159
+LDR R4 R4 ;====5171
+ADI R4 0 ;====5183
+LDR R2 R4 ;====5195
+LDR R3 N11 ;====5207
+LDR R5 N4 ;====5219
+MUL R3 R5 ;====5231
+ADD R2 R3 ;====5243
+MOV R3 FP ;====5255
+ADI R3 -64 ;====5267
+STR R2 R3 ;====5279
+MOV R4 FP ;====5291  ;----- MOV tArr117 HQ
+ADI R4 -64 ;====5303
+LDR R4 R4 ;====5315
+MOV R3 R4 ;====5327
+LDB R2 HQ ;====5339
+STR R2 R3 ;====5351
+MOV R4 FP ;====5363  ;----- AEF V105 N12 tArr118  ------ msg[12] = 'u'  ------ 31
+ADI R4 -8 ;====5375
+LDR R4 R4 ;====5387
+ADI R4 0 ;====5399
+LDR R2 R4 ;====5411
+LDR R3 N12 ;====5423
+LDR R5 N4 ;====5435
+MUL R3 R5 ;====5447
+ADD R2 R3 ;====5459
+MOV R3 FP ;====5471
+ADI R3 -68 ;====5483
+STR R2 R3 ;====5495
+MOV R4 FP ;====5507  ;----- MOV tArr118 Hu
+ADI R4 -68 ;====5519
+LDR R4 R4 ;====5531
+MOV R3 R4 ;====5543
+LDB R2 Hu ;====5555
+STR R2 R3 ;====5567
+MOV R4 FP ;====5579  ;----- AEF V105 N13 tArr119  ------ msg[13] = 'i'  ------ 32
+ADI R4 -8 ;====5591
+LDR R4 R4 ;====5603
+ADI R4 0 ;====5615
+LDR R2 R4 ;====5627
+LDR R3 N13 ;====5639
+LDR R5 N4 ;====5651
+MUL R3 R5 ;====5663
+ADD R2 R3 ;====5675
+MOV R3 FP ;====5687
+ADI R3 -72 ;====5699
+STR R2 R3 ;====5711
+MOV R4 FP ;====5723  ;----- MOV tArr119 Hi
+ADI R4 -72 ;====5735
+LDR R4 R4 ;====5747
+MOV R3 R4 ;====5759
+LDB R2 Hi ;====5771
+STR R2 R3 ;====5783
+MOV R4 FP ;====5795  ;----- AEF V105 N14 tArr120  ------ msg[14] = 't'  ------ 33
+ADI R4 -8 ;====5807
+LDR R4 R4 ;====5819
+ADI R4 0 ;====5831
+LDR R2 R4 ;====5843
+LDR R3 N14 ;====5855
+LDR R5 N4 ;====5867
+MUL R3 R5 ;====5879
+ADD R2 R3 ;====5891
+MOV R3 FP ;====5903
+ADI R3 -76 ;====5915
+STR R2 R3 ;====5927
+MOV R4 FP ;====5939  ;----- MOV tArr120 Ht
+ADI R4 -76 ;====5951
+LDR R4 R4 ;====5963
+MOV R3 R4 ;====5975
+LDB R2 Ht ;====5987
+STR R2 R3 ;====5999
+MOV R4 FP ;====6011  ;----- AEF V105 N15 tArr121  ------ msg[15] = 'F'  ------ 34
+ADI R4 -8 ;====6023
+LDR R4 R4 ;====6035
+ADI R4 0 ;====6047
+LDR R2 R4 ;====6059
+LDR R3 N15 ;====6071
+LDR R5 N4 ;====6083
+MUL R3 R5 ;====6095
+ADD R2 R3 ;====6107
+MOV R3 FP ;====6119
+ADI R3 -80 ;====6131
+STR R2 R3 ;====6143
+MOV R4 FP ;====6155  ;----- MOV tArr121 HF
+ADI R4 -80 ;====6167
+LDR R4 R4 ;====6179
+MOV R3 R4 ;====6191
+LDB R2 HF ;====6203
+STR R2 R3 ;====6215
+MOV R4 FP ;====6227  ;----- AEF V105 N16 tArr122  ------ msg[16] = 'a'  ------ 35
+ADI R4 -8 ;====6239
+LDR R4 R4 ;====6251
+ADI R4 0 ;====6263
+LDR R2 R4 ;====6275
+LDR R3 N16 ;====6287
+LDR R5 N4 ;====6299
+MUL R3 R5 ;====6311
+ADD R2 R3 ;====6323
+MOV R3 FP ;====6335
+ADI R3 -84 ;====6347
+STR R2 R3 ;====6359
+MOV R4 FP ;====6371  ;----- MOV tArr122 Ha
+ADI R4 -84 ;====6383
+LDR R4 R4 ;====6395
+MOV R3 R4 ;====6407
+LDB R2 Ha ;====6419
+STR R2 R3 ;====6431
+MOV R4 FP ;====6443  ;----- AEF V105 N17 tArr123  ------ msg[17] = 'c'  ------ 36
+ADI R4 -8 ;====6455
+LDR R4 R4 ;====6467
+ADI R4 0 ;====6479
+LDR R2 R4 ;====6491
+LDR R3 N17 ;====6503
+LDR R5 N4 ;====6515
+MUL R3 R5 ;====6527
+ADD R2 R3 ;====6539
+MOV R3 FP ;====6551
+ADI R3 -88 ;====6563
+STR R2 R3 ;====6575
+MOV R4 FP ;====6587  ;----- MOV tArr123 Hc
+ADI R4 -88 ;====6599
+LDR R4 R4 ;====6611
+MOV R3 R4 ;====6623
+LDB R2 Hc ;====6635
+STR R2 R3 ;====6647
+MOV R4 FP ;====6659  ;----- AEF V105 N18 tArr124  ------ msg[18] = 't'  ------ 37
+ADI R4 -8 ;====6671
+LDR R4 R4 ;====6683
+ADI R4 0 ;====6695
+LDR R2 R4 ;====6707
+LDR R3 N18 ;====6719
+LDR R5 N4 ;====6731
+MUL R3 R5 ;====6743
+ADD R2 R3 ;====6755
+MOV R3 FP ;====6767
+ADI R3 -92 ;====6779
+STR R2 R3 ;====6791
+MOV R4 FP ;====6803  ;----- MOV tArr124 Ht
+ADI R4 -92 ;====6815
+LDR R4 R4 ;====6827
+MOV R3 R4 ;====6839
+LDB R2 Ht ;====6851
+STR R2 R3 ;====6863
+MOV R4 FP ;====6875  ;----- AEF V105 N19 tArr125  ------ msg[19] = ':'  ------ 38
+ADI R4 -8 ;====6887
+LDR R4 R4 ;====6899
+ADI R4 0 ;====6911
+LDR R2 R4 ;====6923
+LDR R3 N19 ;====6935
+LDR R5 N4 ;====6947
+MUL R3 R5 ;====6959
+ADD R2 R3 ;====6971
+MOV R3 FP ;====6983
+ADI R3 -96 ;====6995
+STR R2 R3 ;====7007
+MOV R4 FP ;====7019  ;----- MOV tArr125 H:
+ADI R4 -96 ;====7031
+LDR R4 R4 ;====7043
+MOV R3 R4 ;====7055
+LDB R2 H: ;====7067
+STR R2 R3 ;====7079
+MOV R4 FP ;====7091  ;----- AEF V105 N20 tArr126  ------ msg[20] = ' '  ------ 39
+ADI R4 -8 ;====7103
+LDR R4 R4 ;====7115
+ADI R4 0 ;====7127
+LDR R2 R4 ;====7139
+LDR R3 N20 ;====7151
+LDR R5 N4 ;====7163
+MUL R3 R5 ;====7175
+ADD R2 R3 ;====7187
+MOV R3 FP ;====7199
+ADI R3 -100 ;====7211
+STR R2 R3 ;====7223
+MOV R4 FP ;====7235  ;----- MOV tArr126 H
+ADI R4 -100 ;====7247
+LDR R4 R4 ;====7259
+MOV R3 R4 ;====7271
+LDB R2 H ;====7283
+STR R2 R3 ;====7295
+MOV R4 FP ;====7307  ;----- AEF V105 N21 tArr127  ------ msg[21] = '='  ------ 40
+ADI R4 -8 ;====7319
+LDR R4 R4 ;====7331
+ADI R4 0 ;====7343
+LDR R2 R4 ;====7355
+LDR R3 N21 ;====7367
+LDR R5 N4 ;====7379
+MUL R3 R5 ;====7391
+ADD R2 R3 ;====7403
+MOV R3 FP ;====7415
+ADI R3 -104 ;====7427
+STR R2 R3 ;====7439
+MOV R4 FP ;====7451  ;----- MOV tArr127 H=
+ADI R4 -104 ;====7463
+LDR R4 R4 ;====7475
+MOV R3 R4 ;====7487
+LDB R2 H= ;====7499
+STR R2 R3 ;====7511
+MOV R4 FP ;====7523  ;----- AEF V105 N22 tArr128  ------ msg[22] = ' '  ------ 41
+ADI R4 -8 ;====7535
+LDR R4 R4 ;====7547
+ADI R4 0 ;====7559
+LDR R2 R4 ;====7571
+LDR R3 N22 ;====7583
+LDR R5 N4 ;====7595
+MUL R3 R5 ;====7607
+ADD R2 R3 ;====7619
+MOV R3 FP ;====7631
+ADI R3 -108 ;====7643
+STR R2 R3 ;====7655
+MOV R4 FP ;====7667  ;----- MOV tArr128 H
+ADI R4 -108 ;====7679
+LDR R4 R4 ;====7691
+MOV R3 R4 ;====7703
+LDB R2 H ;====7715
+STR R2 R3 ;====7727
+MOV R4 FP ;====7739  ;----- AEF V105 N23 tArr129  ------ msg[23] = 'I'  ------ 42
+ADI R4 -8 ;====7751
+LDR R4 R4 ;====7763
+ADI R4 0 ;====7775
+LDR R2 R4 ;====7787
+LDR R3 N23 ;====7799
+LDR R5 N4 ;====7811
+MUL R3 R5 ;====7823
+ADD R2 R3 ;====7835
+MOV R3 FP ;====7847
+ADI R3 -112 ;====7859
+STR R2 R3 ;====7871
+MOV R4 FP ;====7883  ;----- MOV tArr129 HI
+ADI R4 -112 ;====7895
+LDR R4 R4 ;====7907
+MOV R3 R4 ;====7919
+LDB R2 HI ;====7931
+STR R2 R3 ;====7943
+MOV R4 FP ;====7955  ;----- AEF V105 N24 tArr130  ------ msg[24] = 'n'  ------ 43
+ADI R4 -8 ;====7967
+LDR R4 R4 ;====7979
+ADI R4 0 ;====7991
+LDR R2 R4 ;====8003
+LDR R3 N24 ;====8015
+LDR R5 N4 ;====8027
+MUL R3 R5 ;====8039
+ADD R2 R3 ;====8051
+MOV R3 FP ;====8063
+ADI R3 -116 ;====8075
+STR R2 R3 ;====8087
+MOV R4 FP ;====8099  ;----- MOV tArr130 Hn
+ADI R4 -116 ;====8111
+LDR R4 R4 ;====8123
+MOV R3 R4 ;====8135
+LDB R2 Hn ;====8147
+STR R2 R3 ;====8159
+MOV R4 FP ;====8171  ;----- AEF V105 N25 tArr131  ------ msg[25] = 'v'  ------ 44
+ADI R4 -8 ;====8183
+LDR R4 R4 ;====8195
+ADI R4 0 ;====8207
+LDR R2 R4 ;====8219
+LDR R3 N25 ;====8231
+LDR R5 N4 ;====8243
+MUL R3 R5 ;====8255
+ADD R2 R3 ;====8267
+MOV R3 FP ;====8279
+ADI R3 -120 ;====8291
+STR R2 R3 ;====8303
+MOV R4 FP ;====8315  ;----- MOV tArr131 Hv
+ADI R4 -120 ;====8327
+LDR R4 R4 ;====8339
+MOV R3 R4 ;====8351
+LDB R2 Hv ;====8363
+STR R2 R3 ;====8375
+MOV R4 FP ;====8387  ;----- AEF V105 N26 tArr132  ------ msg[26] = 'a'  ------ 45
+ADI R4 -8 ;====8399
+LDR R4 R4 ;====8411
+ADI R4 0 ;====8423
+LDR R2 R4 ;====8435
+LDR R3 N26 ;====8447
+LDR R5 N4 ;====8459
+MUL R3 R5 ;====8471
+ADD R2 R3 ;====8483
+MOV R3 FP ;====8495
+ADI R3 -124 ;====8507
+STR R2 R3 ;====8519
+MOV R4 FP ;====8531  ;----- MOV tArr132 Ha
+ADI R4 -124 ;====8543
+LDR R4 R4 ;====8555
+MOV R3 R4 ;====8567
+LDB R2 Ha ;====8579
+STR R2 R3 ;====8591
+MOV R4 FP ;====8603  ;----- AEF V105 N27 tArr133  ------ msg[27] = 'l'  ------ 46
+ADI R4 -8 ;====8615
+LDR R4 R4 ;====8627
+ADI R4 0 ;====8639
+LDR R2 R4 ;====8651
+LDR R3 N27 ;====8663
+LDR R5 N4 ;====8675
+MUL R3 R5 ;====8687
+ADD R2 R3 ;====8699
+MOV R3 FP ;====8711
+ADI R3 -128 ;====8723
+STR R2 R3 ;====8735
+MOV R4 FP ;====8747  ;----- MOV tArr133 Hl
+ADI R4 -128 ;====8759
+LDR R4 R4 ;====8771
+MOV R3 R4 ;====8783
+LDB R2 Hl ;====8795
+STR R2 R3 ;====8807
+MOV R4 FP ;====8819  ;----- AEF V105 N28 tArr134  ------ msg[28] = 'i'  ------ 47
+ADI R4 -8 ;====8831
+LDR R4 R4 ;====8843
+ADI R4 0 ;====8855
+LDR R2 R4 ;====8867
+LDR R3 N28 ;====8879
+LDR R5 N4 ;====8891
+MUL R3 R5 ;====8903
+ADD R2 R3 ;====8915
+MOV R3 FP ;====8927
+ADI R3 -132 ;====8939
+STR R2 R3 ;====8951
+MOV R4 FP ;====8963  ;----- MOV tArr134 Hi
+ADI R4 -132 ;====8975
+LDR R4 R4 ;====8987
+MOV R3 R4 ;====8999
+LDB R2 Hi ;====9011
+STR R2 R3 ;====9023
+MOV R4 FP ;====9035  ;----- AEF V105 N29 tArr135  ------ msg[29] = 'd'  ------ 48
+ADI R4 -8 ;====9047
+LDR R4 R4 ;====9059
+ADI R4 0 ;====9071
+LDR R2 R4 ;====9083
+LDR R3 N29 ;====9095
+LDR R5 N4 ;====9107
+MUL R3 R5 ;====9119
+ADD R2 R3 ;====9131
+MOV R3 FP ;====9143
+ADI R3 -136 ;====9155
+STR R2 R3 ;====9167
+MOV R4 FP ;====9179  ;----- MOV tArr135 Hd
+ADI R4 -136 ;====9191
+LDR R4 R4 ;====9203
+MOV R3 R4 ;====9215
+LDB R2 Hd ;====9227
+STR R2 R3 ;====9239
+MOV R4 FP ;====9251  ;----- AEF V105 N30 tArr136  ------ msg[30] = ' '  ------ 49
+ADI R4 -8 ;====9263
+LDR R4 R4 ;====9275
+ADI R4 0 ;====9287
+LDR R2 R4 ;====9299
+LDR R3 N30 ;====9311
+LDR R5 N4 ;====9323
+MUL R3 R5 ;====9335
+ADD R2 R3 ;====9347
+MOV R3 FP ;====9359
+ADI R3 -140 ;====9371
+STR R2 R3 ;====9383
+MOV R4 FP ;====9395  ;----- MOV tArr136 H
+ADI R4 -140 ;====9407
+LDR R4 R4 ;====9419
+MOV R3 R4 ;====9431
+LDB R2 H ;====9443
+STR R2 R3 ;====9455
+MOV R4 FP ;====9467  ;----- AEF V105 N31 tArr137  ------ msg[31] = 'E'  ------ 50
+ADI R4 -8 ;====9479
+LDR R4 R4 ;====9491
+ADI R4 0 ;====9503
+LDR R2 R4 ;====9515
+LDR R3 N31 ;====9527
+LDR R5 N4 ;====9539
+MUL R3 R5 ;====9551
+ADD R2 R3 ;====9563
+MOV R3 FP ;====9575
+ADI R3 -144 ;====9587
+STR R2 R3 ;====9599
+MOV R4 FP ;====9611  ;----- MOV tArr137 HE
+ADI R4 -144 ;====9623
+LDR R4 R4 ;====9635
+MOV R3 R4 ;====9647
+LDB R2 HE ;====9659
+STR R2 R3 ;====9671
+MOV R4 FP ;====9683  ;----- AEF V105 N32 tArr138  ------ msg[32] = 'n'  ------ 51
+ADI R4 -8 ;====9695
+LDR R4 R4 ;====9707
+ADI R4 0 ;====9719
+LDR R2 R4 ;====9731
+LDR R3 N32 ;====9743
+LDR R5 N4 ;====9755
+MUL R3 R5 ;====9767
+ADD R2 R3 ;====9779
+MOV R3 FP ;====9791
+ADI R3 -148 ;====9803
+STR R2 R3 ;====9815
+MOV R4 FP ;====9827  ;----- MOV tArr138 Hn
+ADI R4 -148 ;====9839
+LDR R4 R4 ;====9851
+MOV R3 R4 ;====9863
+LDB R2 Hn ;====9875
+STR R2 R3 ;====9887
+MOV R4 FP ;====9899  ;----- AEF V105 N33 tArr139  ------ msg[33] = 't'  ------ 52
+ADI R4 -8 ;====9911
+LDR R4 R4 ;====9923
+ADI R4 0 ;====9935
+LDR R2 R4 ;====9947
+LDR R3 N33 ;====9959
+LDR R5 N4 ;====9971
+MUL R3 R5 ;====9983
+ADD R2 R3 ;====9995
+MOV R3 FP ;====10007
+ADI R3 -152 ;====10019
+STR R2 R3 ;====10031
+MOV R4 FP ;====10043  ;----- MOV tArr139 Ht
+ADI R4 -152 ;====10055
+LDR R4 R4 ;====10067
+MOV R3 R4 ;====10079
+LDB R2 Ht ;====10091
+STR R2 R3 ;====10103
+MOV R4 FP ;====10115  ;----- AEF V105 N34 tArr140  ------ msg[34] = 'r'  ------ 53
+ADI R4 -8 ;====10127
+LDR R4 R4 ;====10139
+ADI R4 0 ;====10151
+LDR R2 R4 ;====10163
+LDR R3 N34 ;====10175
+LDR R5 N4 ;====10187
+MUL R3 R5 ;====10199
+ADD R2 R3 ;====10211
+MOV R3 FP ;====10223
+ADI R3 -156 ;====10235
+STR R2 R3 ;====10247
+MOV R4 FP ;====10259  ;----- MOV tArr140 Hr
+ADI R4 -156 ;====10271
+LDR R4 R4 ;====10283
+MOV R3 R4 ;====10295
+LDB R2 Hr ;====10307
+STR R2 R3 ;====10319
+MOV R4 FP ;====10331  ;----- AEF V105 N35 tArr141  ------ msg[35] = 'y'  ------ 54
+ADI R4 -8 ;====10343
+LDR R4 R4 ;====10355
+ADI R4 0 ;====10367
+LDR R2 R4 ;====10379
+LDR R3 N35 ;====10391
+LDR R5 N4 ;====10403
+MUL R3 R5 ;====10415
+ADD R2 R3 ;====10427
+MOV R3 FP ;====10439
+ADI R3 -160 ;====10451
+STR R2 R3 ;====10463
+MOV R4 FP ;====10475  ;----- MOV tArr141 Hy
+ADI R4 -160 ;====10487
+LDR R4 R4 ;====10499
+MOV R3 R4 ;====10511
+LDB R2 Hy ;====10523
+STR R2 R3 ;====10535
+MOV SP FP ;====10547  ;----- RETURN this  ------ }  ------ 55
+MOV R2 SP ;====10559
+CMP R2 SB ;====10571
+BGT R2 UNDERFLOW ;====10583
+LDR R3 FP ;====10595
+MOV R4 FP ;====10607
+ADI R4 -8 ;====10619
+LDR R5 R4 ;====10631
+ADI FP -4 ;====10643
+LDR FP FP ;====10655
+STR R5 SP ;====10667
+JMR R3 ;====10679
+M109 ADI SP -4 ;====10691  ;----- M109 FUNC M109  ------ public void quit() {  ------ 56
+MOV R2 SP ;====10703  ;----- FRAME M114 this  ------ print(0, 14)  ------ 57
+ADI R2 -24 ;====10715
+CMP R2 SL ;====10727
+BLT R2 OVERFLOW ;====10739
+MOV R6 FP ;====10751
+MOV FP SP ;====10763
+ADI SP -4 ;====10775
+STR R6 SP ;====10787
+ADI SP -4 ;====10799
+ADI R6 -8 ;====10811
+LDR R2 R6 ;====10823
+STR R2 SP ;====10835
+ADI SP -4 ;====10847
+MOV R6 FP ;====10859  ;----- PUSH N0
+ADI FP -4 ;====10871
+LDR FP FP ;====10883
+LDR R2 N0 ;====10895
+STR R2 SP ;====10907
+MOV FP R6 ;====10919
+ADI SP -4 ;====10931
+MOV R6 FP ;====10943  ;----- PUSH N14
+ADI FP -4 ;====10955
+LDR FP FP ;====10967
+LDR R2 N14 ;====10979
+STR R2 SP ;====10991
+MOV FP R6 ;====11003
+ADI SP -4 ;====11015
+MOV R2 PC ;====11027  ;----- CALL M114
+ADI R2 36 ;====11039
+STR R2 FP ;====11051
+JMP M114 ;====11063
+MOV SP FP ;====11075  ;----- RTN
+MOV R2 SP ;====11087
+CMP R2 SB ;====11099
+BGT R2 UNDERFLOW ;====11111
+LDR R2 FP ;====11123
+ADI FP -4 ;====11135
+LDR FP FP ;====11147
+JMR R2 ;====11159
+M110 ADI SP -4 ;====11171  ;----- M110 FUNC M110  ------ public void prompt() {  ------ 59
+LDB R3 H\n ;====11183  ;----- WRITE H\n  ------ cout << '\n'  ------ 60
+TRP 3 ;====11195
+MOV R2 SP ;====11207  ;----- FRAME M114 this  ------ print(15, 20)  ------ 61
+ADI R2 -24 ;====11219
+CMP R2 SL ;====11231
+BLT R2 OVERFLOW ;====11243
+MOV R6 FP ;====11255
+MOV FP SP ;====11267
+ADI SP -4 ;====11279
+STR R6 SP ;====11291
+ADI SP -4 ;====11303
+ADI R6 -8 ;====11315
+LDR R2 R6 ;====11327
+STR R2 SP ;====11339
+ADI SP -4 ;====11351
+MOV R6 FP ;====11363  ;----- PUSH N15
+ADI FP -4 ;====11375
+LDR FP FP ;====11387
+LDR R2 N15 ;====11399
+STR R2 SP ;====11411
+MOV FP R6 ;====11423
+ADI SP -4 ;====11435
+MOV R6 FP ;====11447  ;----- PUSH N20
+ADI FP -4 ;====11459
+LDR FP FP ;====11471
+LDR R2 N20 ;====11483
+STR R2 SP ;====11495
+MOV FP R6 ;====11507
+ADI SP -4 ;====11519
+MOV R2 PC ;====11531  ;----- CALL M114
+ADI R2 36 ;====11543
+STR R2 FP ;====11555
+JMP M114 ;====11567
+MOV SP FP ;====11579  ;----- RTN
+MOV R2 SP ;====11591
+CMP R2 SB ;====11603
+BGT R2 UNDERFLOW ;====11615
+LDR R2 FP ;====11627
+ADI FP -4 ;====11639
+LDR FP FP ;====11651
+JMR R2 ;====11663
+M111 ADI SP -4 ;====11675  ;----- M111 FUNC M111  ------ public void invalid() {  ------ 63
+LDB R3 H\n ;====11687  ;----- WRITE H\n  ------ cout << '\n'  ------ 64
+TRP 3 ;====11699
+MOV R2 SP ;====11711  ;----- FRAME M114 this  ------ print(23, 35)  ------ 65
+ADI R2 -24 ;====11723
+CMP R2 SL ;====11735
+BLT R2 OVERFLOW ;====11747
+MOV R6 FP ;====11759
+MOV FP SP ;====11771
+ADI SP -4 ;====11783
+STR R6 SP ;====11795
+ADI SP -4 ;====11807
+ADI R6 -8 ;====11819
+LDR R2 R6 ;====11831
+STR R2 SP ;====11843
+ADI SP -4 ;====11855
+MOV R6 FP ;====11867  ;----- PUSH N23
+ADI FP -4 ;====11879
+LDR FP FP ;====11891
+LDR R2 N23 ;====11903
+STR R2 SP ;====11915
+MOV FP R6 ;====11927
+ADI SP -4 ;====11939
+MOV R6 FP ;====11951  ;----- PUSH N35
+ADI FP -4 ;====11963
+LDR FP FP ;====11975
+LDR R2 N35 ;====11987
+STR R2 SP ;====11999
+MOV FP R6 ;====12011
+ADI SP -4 ;====12023
+MOV R2 PC ;====12035  ;----- CALL M114
+ADI R2 36 ;====12047
+STR R2 FP ;====12059
+JMP M114 ;====12071
+MOV SP FP ;====12083  ;----- RTN
+MOV R2 SP ;====12095
+CMP R2 SB ;====12107
+BGT R2 UNDERFLOW ;====12119
+LDR R2 FP ;====12131
+ADI FP -4 ;====12143
+LDR FP FP ;====12155
+JMR R2 ;====12167
+M114 ADI SP -12 ;====12179  ;----- M114 FUNC M114  ------ private void print(int i, int last) {  ------ 67
+BEGIN_3 MOV R4 FP ;====12191  ;----- BEGIN_3 LE P112 P113 t145  ------ while (i <= last) {  ------ 68
+ADI R4 -12 ;====12203
+LDR R2 R4 ;====12215
+MOV R4 FP ;====12227
+ADI R4 -16 ;====12239
+LDR R3 R4 ;====12251
+CMP R2 R3 ;====12263
+BLT R2 SKIP_9 ;====12275
+MOV R4 FP ;====12287
+ADI R4 -12 ;====12299
+LDR R2 R4 ;====12311
+MOV R4 FP ;====12323
+ADI R4 -16 ;====12335
+LDR R3 R4 ;====12347
+CMP R2 R3 ;====12359
+BRZ R2 SKIP_9 ;====12371
+MOV R4 FP ;====12383
+ADI R4 -20 ;====12395
+STR R0 R4 ;====12407
+JMP SKIP_10 ;====12419
+SKIP_9 MOV R4 FP ;====12431
+ADI R4 -20 ;====12443
+STR R1 R4 ;====12455
+SKIP_10 MOV R4 FP ;====12467  ;----- BF t145 ENDWHILE_4 
+ADI R4 -20 ;====12479
+LDR R2 R4 ;====12491
+BRZ R2 ENDWHILE_4 ;====12503
+MOV R4 FP ;====12515  ;----- AEF V105 P112 tArr146  ------ cout << msg[i]  ------ 69
+ADI R4 -8 ;====12527
+LDR R4 R4 ;====12539
+ADI R4 0 ;====12551
+LDR R2 R4 ;====12563
+MOV R4 FP ;====12575
+ADI R4 -12 ;====12587
+LDR R3 R4 ;====12599
+LDR R5 N4 ;====12611
+MUL R3 R5 ;====12623
+ADD R2 R3 ;====12635
+MOV R3 FP ;====12647
+ADI R3 -24 ;====12659
+STR R2 R3 ;====12671
+MOV R4 FP ;====12683  ;----- WRITE tArr146
+ADI R4 -24 ;====12695
+LDR R4 R4 ;====12707
+LDR R3 R4 ;====12719
+TRP 3 ;====12731
+MOV R4 FP ;====12743  ;----- ADD P112 N1 t147  ------ i = i + 1  ------ 70
+ADI R4 -12 ;====12755
+LDR R2 R4 ;====12767
+LDR R3 N1 ;====12779
+ADD R2 R3 ;====12791
+MOV R4 FP ;====12803
+ADI R4 -28 ;====12815
+STR R2 R4 ;====12827
+MOV R4 FP ;====12839  ;----- MOV P112 t147
+ADI R4 -12 ;====12851
+MOV R3 R4 ;====12863
+MOV R4 FP ;====12875
+ADI R4 -28 ;====12887
+LDR R2 R4 ;====12899
+STR R2 R3 ;====12911
+JMP BEGIN_3 ;====12923  ;----- JMP BEGIN_3   ------ }  ------ 72
+ENDWHILE_4 MOV SP FP ;====12935  ;----- ENDWHILE_4 RTN
+MOV R2 SP ;====12947
+CMP R2 SB ;====12959
+BGT R2 UNDERFLOW ;====12971
+LDR R2 FP ;====12983
+ADI FP -4 ;====12995
+LDR FP FP ;====13007
+JMR R2 ;====13019
+MAIN ADI SP -56 ;====13031  ;----- MAIN FUNC MAIN  ------ void pxi main() {  ------ 74
+LDR R2 FREE ;====13043  ;----- NEWI 12 t148  ------ Message msg = new Message()  ------ 77
+MOV R4 FP ;====13055
+ADI R4 -24 ;====13067
+STR R2 R4 ;====13079
+ADI R2 12 ;====13091
+STR R2 FREE ;====13103
+MOV R2 SP ;====13115  ;----- FRAME X108 t148
+ADI R2 -164 ;====13127
+CMP R2 SL ;====13139
+BLT R2 OVERFLOW ;====13151
+MOV R6 FP ;====13163
+MOV FP SP ;====13175
+ADI SP -4 ;====13187
+STR R6 SP ;====13199
+ADI SP -4 ;====13211
+ADI R6 -24 ;====13223
+LDR R2 R6 ;====13235
+STR R2 SP ;====13247
+ADI SP -4 ;====13259
+MOV R2 PC ;====13271  ;----- CALL X108
+ADI R2 36 ;====13283
+STR R2 FP ;====13295
+JMP X108 ;====13307
+LDR R2 SP ;====13319  ;----- PEEK t149
+MOV R4 FP ;====13331
+ADI R4 -28 ;====13343
+STR R2 R4 ;====13355
+MOV R4 FP ;====13367  ;----- MOV L117 t149
+ADI R4 -20 ;====13379
+MOV R3 R4 ;====13391
+MOV R4 FP ;====13403
+ADI R4 -28 ;====13415
+LDR R2 R4 ;====13427
+STR R2 R3 ;====13439
+LDR R2 FREE ;====13451  ;----- NEWI 0 t150  ------ Math math = new Math()  ------ 78
+MOV R4 FP ;====13463
+ADI R4 -36 ;====13475
+STR R2 R4 ;====13487
+ADI R2 0 ;====13499
+STR R2 FREE ;====13511
+MOV R2 SP ;====13523  ;----- FRAME X101 t150
+ADI R2 -12 ;====13535
+CMP R2 SL ;====13547
+BLT R2 OVERFLOW ;====13559
+MOV R6 FP ;====13571
+MOV FP SP ;====13583
+ADI SP -4 ;====13595
+STR R6 SP ;====13607
+ADI SP -4 ;====13619
+ADI R6 -36 ;====13631
+LDR R2 R6 ;====13643
+STR R2 SP ;====13655
+ADI SP -4 ;====13667
+MOV R2 PC ;====13679  ;----- CALL X101
+ADI R2 36 ;====13691
+STR R2 FP ;====13703
+JMP X101 ;====13715
+LDR R2 SP ;====13727  ;----- PEEK t151
+MOV R4 FP ;====13739
+ADI R4 -40 ;====13751
+STR R2 R4 ;====13763
+MOV R4 FP ;====13775  ;----- MOV L118 t151
+ADI R4 -24 ;====13787
+MOV R3 R4 ;====13799
+MOV R4 FP ;====13811
+ADI R4 -40 ;====13823
+LDR R2 R4 ;====13835
+STR R2 R3 ;====13847
+MOV R2 SP ;====13859  ;----- FRAME M109 L117  ------ msg.quit()  ------ 79
+ADI R2 -16 ;====13871
+CMP R2 SL ;====13883
+BLT R2 OVERFLOW ;====13895
+MOV R6 FP ;====13907
+MOV FP SP ;====13919
+ADI SP -4 ;====13931
+STR R6 SP ;====13943
+ADI SP -4 ;====13955
+ADI R6 -20 ;====13967
+LDR R2 R6 ;====13979
+STR R2 SP ;====13991
+ADI SP -4 ;====14003
+MOV R2 PC ;====14015  ;----- CALL M109
+ADI R2 36 ;====14027
+STR R2 FP ;====14039
+JMP M109 ;====14051
+LDR R2 SP ;====14063  ;----- PEEK t152
+MOV R4 FP ;====14075
+ADI R4 -44 ;====14087
+STR R2 R4 ;====14099
+MOV R2 SP ;====14111  ;----- FRAME M110 L117  ------ msg.prompt()  ------ 80
+ADI R2 -16 ;====14123
+CMP R2 SL ;====14135
+BLT R2 OVERFLOW ;====14147
+MOV R6 FP ;====14159
+MOV FP SP ;====14171
+ADI SP -4 ;====14183
+STR R6 SP ;====14195
+ADI SP -4 ;====14207
+ADI R6 -20 ;====14219
+LDR R2 R6 ;====14231
+STR R2 SP ;====14243
+ADI SP -4 ;====14255
+MOV R2 PC ;====14267  ;----- CALL M110
+ADI R2 36 ;====14279
+STR R2 FP ;====14291
+JMP M110 ;====14303
+LDR R2 SP ;====14315  ;----- PEEK t153
+MOV R4 FP ;====14327
+ADI R4 -48 ;====14339
+STR R2 R4 ;====14351
+TRP 4 ;====14363  ;----- READ L115  ------ cin >> key  ------ 81
+MOV R4 FP ;====14375
+ADI R4 -12 ;====14387
+MOV R2 R4 ;====14399
+STR R3 R2 ;====14411
+BEGIN_5 MOV R4 FP ;====14423  ;----- BEGIN_5 NE L115 H! t154  ------ while (key != '!') {  ------ 82
+ADI R4 -12 ;====14435
+LDR R2 R4 ;====14447
+LDB R3 H! ;====14459
+CMP R2 R3 ;====14471
+BNZ R2 SKIP_11 ;====14483
+MOV R4 FP ;====14495
+ADI R4 -52 ;====14507
+STR R0 R4 ;====14519
+JMP SKIP_12 ;====14531
+SKIP_11 MOV R4 FP ;====14543
+ADI R4 -52 ;====14555
+STR R1 R4 ;====14567
+SKIP_12 MOV R4 FP ;====14579  ;----- BF t154 ENDWHILE_6 
+ADI R4 -52 ;====14591
+LDR R2 R4 ;====14603
+BRZ R2 ENDWHILE_6 ;====14615
+MOV R4 FP ;====14627  ;----- MOV t155 L115  ------ value = atoi(key)  ------ 83
+ADI R4 -56 ;====14639
+MOV R3 R4 ;====14651
+MOV R4 FP ;====14663
+ADI R4 -12 ;====14675
+LDR R2 R4 ;====14687
+STR R2 R3 ;====14699
+MOV R4 FP ;====14711  ;----- CONVERT t155
+ADI R4 -56 ;====14723
+LDR R3 R4 ;====14735
+TRP 10 ;====14747
+MOV R4 FP ;====14759
+ADI R4 -56 ;====14771
+MOV R2 R4 ;====14783
+STR R3 R2 ;====14795
+MOV R4 FP ;====14807  ;----- MOV L116 t155
+ADI R4 -16 ;====14819
+MOV R3 R4 ;====14831
+MOV R4 FP ;====14843
+ADI R4 -56 ;====14855
+LDR R2 R4 ;====14867
+STR R2 R3 ;====14879
+MOV R2 SP ;====14891  ;----- FRAME M103 L118  ------ cout << math.factorial(value)  ------ 89
+ADI R2 -28 ;====14903
+CMP R2 SL ;====14915
+BLT R2 OVERFLOW ;====14927
+MOV R6 FP ;====14939
+MOV FP SP ;====14951
+ADI SP -4 ;====14963
+STR R6 SP ;====14975
+ADI SP -4 ;====14987
+ADI R6 -24 ;====14999
+LDR R2 R6 ;====15011
+STR R2 SP ;====15023
+ADI SP -4 ;====15035
+MOV R6 FP ;====15047  ;----- PUSH L116
+ADI FP -4 ;====15059
+LDR FP FP ;====15071
+MOV R4 FP ;====15083
+ADI R4 -16 ;====15095
+LDR R2 R4 ;====15107
+STR R2 SP ;====15119
+MOV FP R6 ;====15131
+ADI SP -4 ;====15143
+MOV R2 PC ;====15155  ;----- CALL M103
+ADI R2 36 ;====15167
+STR R2 FP ;====15179
+JMP M103 ;====15191
+LDR R2 SP ;====15203  ;----- PEEK t156
+MOV R4 FP ;====15215
+ADI R4 -60 ;====15227
+STR R2 R4 ;====15239
+MOV R4 FP ;====15251  ;----- WRITE t156
+ADI R4 -60 ;====15263
+LDR R3 R4 ;====15275
+TRP 1 ;====15287
+MOV R2 SP ;====15299  ;----- FRAME M110 L117  ------ msg.prompt()  ------ 90
+ADI R2 -16 ;====15311
+CMP R2 SL ;====15323
+BLT R2 OVERFLOW ;====15335
+MOV R6 FP ;====15347
+MOV FP SP ;====15359
+ADI SP -4 ;====15371
+STR R6 SP ;====15383
+ADI SP -4 ;====15395
+ADI R6 -20 ;====15407
+LDR R2 R6 ;====15419
+STR R2 SP ;====15431
+ADI SP -4 ;====15443
+MOV R2 PC ;====15455  ;----- CALL M110
+ADI R2 36 ;====15467
+STR R2 FP ;====15479
+JMP M110 ;====15491
+LDR R2 SP ;====15503  ;----- PEEK t157
+MOV R4 FP ;====15515
+ADI R4 -64 ;====15527
+STR R2 R4 ;====15539
+TRP 4 ;====15551  ;----- READ L115  ------ cin >> key  ------ 91
+MOV R4 FP ;====15563
+ADI R4 -12 ;====15575
+MOV R2 R4 ;====15587
+STR R3 R2 ;====15599
+JMP BEGIN_5 ;====15611  ;----- JMP BEGIN_5   ------ }  ------ 93
+ENDWHILE_6 MOV SP FP ;====15623  ;----- ENDWHILE_6 RTN
+MOV R2 SP ;====15635
+CMP R2 SB ;====15647
+BGT R2 UNDERFLOW ;====15659
+LDR R2 FP ;====15671
+ADI FP -4 ;====15683
+LDR FP FP ;====15695
+JMR R2 ;====15707
+OVERFLOW LDB R3 H!
+TRP 3
+UNDERFLOW LDB R3 H!
+TRP 3
+END TRP 0

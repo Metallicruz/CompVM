@@ -1,0 +1,18 @@
+c:\users\rob\documents\visual studio 2015\Projects\Compiler\Compiler\bin\Debug\Compiler.exe.config
+c:\users\rob\documents\visual studio 2015\Projects\Compiler\Compiler\obj\Debug\Compiler.csprojResolveAssemblyReference.cache
+c:\users\rob\documents\visual studio 2015\Projects\Compiler\Compiler\bin\Debug\Compiler.exe
+c:\users\rob\documents\visual studio 2015\Projects\Compiler\Compiler\bin\Debug\Compiler.pdb
+c:\users\rob\documents\visual studio 2015\Projects\Compiler\Compiler\obj\Debug\Compiler.exe
+c:\users\rob\documents\visual studio 2015\Projects\Compiler\Compiler\obj\Debug\Compiler.pdb
+C:\Users\Rob\Documents\School\CS4490_Compiler\Compiler\Compiler\Compiler\bin\Debug\Compiler.exe.config
+C:\Users\Rob\Documents\School\CS4490_Compiler\Compiler\Compiler\Compiler\obj\Debug\Compiler.exe
+C:\Users\Rob\Documents\School\CS4490_Compiler\Compiler\Compiler\Compiler\obj\Debug\Compiler.pdb
+C:\Users\Rob\Documents\School\CS4490_Compiler\Compiler\Compiler\Compiler\bin\Debug\Compiler.exe
+C:\Users\Rob\Documents\School\CS4490_Compiler\Compiler\Compiler\Compiler\bin\Debug\Compiler.pdb
+C:\Users\Rob\Documents\School\CS4490_Compiler\Compiler\Compiler\Compiler\obj\Debug\Compiler.csprojResolveAssemblyReference.cache
+C:\Users\Rob\Documents\School\CS4490_Compiler\Compiler+VM\Compiler\Compiler\bin\Debug\Compiler.exe.config
+C:\Users\Rob\Documents\School\CS4490_Compiler\Compiler+VM\Compiler\Compiler\obj\Debug\Compiler.exe
+C:\Users\Rob\Documents\School\CS4490_Compiler\Compiler+VM\Compiler\Compiler\obj\Debug\Compiler.pdb
+C:\Users\Rob\Documents\School\CS4490_Compiler\Compiler+VM\Compiler\Compiler\bin\Debug\Compiler.exe
+C:\Users\Rob\Documents\School\CS4490_Compiler\Compiler+VM\Compiler\Compiler\bin\Debug\Compiler.pdb
+C:\Users\Rob\Documents\School\CS4490_Compiler\Compiler+VM\Compiler\Compiler\obj\Debug\Compiler.csprojResolveAssemblyReference.cache

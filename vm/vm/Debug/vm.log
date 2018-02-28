@@ -1,0 +1,6 @@
+﻿  vm.cpp
+c:\users\rob\documents\school\cs4490_compiler\compiler\vm\vm\vm.cpp(200): warning C4101: 'value': unreferenced local variable
+c:\users\rob\documents\school\cs4490_compiler\compiler\vm\vm\vm.cpp(199): warning C4101: 'temp': unreferenced local variable
+c:\users\rob\documents\school\cs4490_compiler\compiler\vm\vm\vm.cpp(135): warning C4715: 'Assembler::GetRegister': not all control paths return a value
+  vm.vcxproj -> C:\Users\Rob\Documents\School\CS4490_Compiler\Compiler\vm\Debug\vm.exe
+  vm.vcxproj -> C:\Users\Rob\Documents\School\CS4490_Compiler\Compiler\vm\Debug\vm.pdb (Partial PDB)
